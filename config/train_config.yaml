@@ -1,0 +1,6 @@
+DATALOADER:
+  batch_size: 10 
+  data_name: FI
+  dir_path: ../data
+  
+GPU_NUM: 1
