@@ -25,11 +25,6 @@ data
     └── test
 ```
 
-- [scripts/]() contains code for implementing the model training.
-- [checkpoints/]() is a repository where a checkpoint during the training procedure would be saved.
-- README.md
--requirements.txt
-
 
 Model Architecture
 -------------
@@ -43,34 +38,23 @@ For experimental setup, requirements.txt lists down the requirements for running
 
 ```
 pip install -r requirements.txt
-```
-
-**Training setup**
-
-We used pre-trained object detection model from the ~ repo. The pre-trained weights is expected to be located in data/.
+``` 
 
 Usage
 ------------------------
 1. Clone the repository
-
-```
-git clone ~
-```
+    ```
+    git clone https://github.com/sange1104/OSANet.git
+    ```
 
 2. Download dataset and split into train, val, and test set.
 
-3. Download the pre-trained weights for salient object detection. 
+3. Set up the object_detection folder. We used pre-trained object detection model from the [Faster R-CNN with model pretrained on Visual Genome](https://github.com/shilrley6/Faster-R-CNN-with-model-pretrained-on-Visual-Genome). For the object_detection folder, you better follow the guideline of [this repository](https://github.com/shilrley6/Faster-R-CNN-with-model-pretrained-on-Visual-Genome).
 
-3. Train the model with arguments as follows:
+4. Train the model with arguments from [/config/train_config.yaml](https://github.com/sange1104/OSANet/blob/main/config/train_config.yaml). 
+    You can train the model as follows:
+    ```
+    python train.py
+    ```
 
-|Name|Required|Type|Default|Options|
-|---|---|---|---|---|
-|**aux_num**|Yes|int|-|1,2,3|
-
-
-You can train the model as follows:
-```
-python ./scripts/train.py
-```
-
-4. The checkpoints of the best validation performance will be saved in [/checkpoints]() directory. You can further train model or use for inference with this checkpoint.
+5. The checkpoints of the best validation performance will be saved in [/checkpoints]() directory. You can further train model or use for inference with this checkpoint.
